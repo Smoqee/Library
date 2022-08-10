@@ -33,9 +33,9 @@ function addBookToLibrary() {
     const newTitle = document.querySelector('#title')
     const newAuthor = document.querySelector('#author')
     const newPages = document.querySelector('#pages')
-    const newStatus = document.querySelector('#status')
+    const newStatus = document.querySelector('#status')    
     myLibrary.push(
-        new Book(newTitle.value, newAuthor.value, newPages.value, newStatus.value)
+        new Book(newTitle.value, newAuthor.value, newPages.value, newStatus.options[newStatus.selectedIndex].value === "true")
         )
     displayBooks()
 }
@@ -90,6 +90,7 @@ function displayBooks() {
 }
 
 function resetInput() {
+    
     const newTitle = document.querySelector('#title')
     const newAuthor = document.querySelector('#author')
     const newPages = document.querySelector('#pages')
@@ -97,7 +98,7 @@ function resetInput() {
     newTitle.value = ""
     newAuthor.value = ""
     newPages.value = ""
-    newStatus.value = ""
+    newStatus.value = "true"
 }
 
 
@@ -110,11 +111,18 @@ button.addEventListener('click', (e) => {
         button.classList.toggle('hidden-field')
         newBookTable.style.visibility = "visible"
         button.innerText = "Submit"
+        button.type = 'button'
 
         cancel.style.visibility = 'visible'
     } else {
-        addBookToLibrary()
-        resetInput()
+        button.type = 'submit'
+        if(document.querySelector('form').checkValidity() === true) {
+            addBookToLibrary()
+            resetInput()
+            e.preventDefault()
+        } else {
+            console.log('no')
+        }
     }
 })
 
