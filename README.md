@@ -1,6 +1,8 @@
 # Library
 small library app to apply objects
 
+https://smoqee.github.io/Library/
+
 1. Setup files
 2. simple array with books, function takes user input and stores in array
 3. function dispays every book from array
