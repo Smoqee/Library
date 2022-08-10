@@ -10,11 +10,15 @@
 </head>
 <body>
     
-    <div id="lib">
+    <div class="lib">
         
         <table>
             <colgroup>
             <col style="width: 400px;">
+            <col style="width: 200px;">
+            <col style="width: 100px;">
+            <col style="width: 160px">
+            <col style="width: 70px;">
             </colgroup>
         
             <caption>
@@ -26,27 +30,61 @@
                     <th>Author</th>
                     <th>Pages</th>
                     <th>Status</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>The Hobbit</td>
-                    <td>Tolkien</td>
-                    <td>673</td>
-                    <td>not yet read</td>
-                </tr>
-
-                <tr>
-                    <td>Herr der Ringe</td>
-                    <td>Tolkien</td>
-                    <td>3421</td>
-                    <td>not yet read</td>
-                </tr>
             </tbody>
         </table>
+        <form action="" method="get">
+            <div class="buttons">
+                <button type="button" id="cancel">Cancel</button>
+                <button type="button" id="main-button" class="hidden-field">+ Add to Library</button>
+            </div>
+            <table id="new-book">
+                <colgroup>
+                    <col style="width: 400px;">
+                    <col style="width: 200px;">
+                    <col style="width: 100px;">
+                    <col style="width: 230px">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>
+                            <label for="title">Title</label>
+                        </th>
+                        <th>
+                            <label for="author">Author</label>
+                        </th>
+                        <th>
+                            <label for="pages">Pages</label>
+                        </th>
+                        <th>
+                            <label for="status">Status</label>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="text" id="title" name="title" placeholder="..." required>
+                        </td>
+                        <td>
+                            <input type="text" id="author" name="author" placeholder="..." required>
+                        </td>
+                        <td>
+                            <input type="number" id="pages" name="pages" placeholder="..." required>
+                        </td>
+                        <td>
+                            <select name="status" id="status">
+                                <option value="true">read</option>
+                                <option value="false">not yet read</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
     </div>
-
-    <button>+ Add to Library</button>
-
 </body>
 </html>
