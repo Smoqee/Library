@@ -1,24 +1,23 @@
-let myLibrary = [
-    new Book('Tribute von Panem', "Komischer Vogel", 724, true),
-    new Book('Harry Potter', 'JK is rollin', '1392', false),
-    new Book('The Hobbit', 'Tolkien', 673, true)
-]
+/**
+ * Book class to add unlimited books with bind specifics
+ */
+class Book {
+    constructor(title, author, pages, status) {
+        this.title = title
+        this.author = author
+        this.pages = pages
+        this.status = status
+    }
 
-const tableBody = document.querySelector('tbody')
-
-function Book(title, author, pages, status) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.status = status
-    this.info = function() {
-        if(status === false) {
-            return(`${title} by ${author}, ${pages} pages, not read yet`)
+    info() {
+        if(this.status === false) {
+            return(`${this.title} by ${this.author}, ${this.pages} pages, not read yet`)
         } else {
-            return(`${title} by ${author}, ${pages} pages, read`)
+            return(`${this.title} by ${this.author}, ${this.pages} pages, read`)
         }
     }
-    this.toggleStatus = function() {
+
+    toggleStatus() {
         if(this.status === true) {
             this.status = false
         } else {
@@ -27,6 +26,13 @@ function Book(title, author, pages, status) {
     }
 }
 
+let myLibrary = [
+    new Book('Tribute von Panem', "Komischer Vogel", 724, true),
+    new Book('Harry Potter', 'JK is rollin', '1392', false),
+    new Book('The Hobbit', 'Tolkien', 673, true)
+]
+
+const tableBody = document.querySelector('tbody')
 
 
 function addBookToLibrary() {
@@ -120,8 +126,6 @@ button.addEventListener('click', (e) => {
             addBookToLibrary()
             resetInput()
             e.preventDefault()
-        } else {
-            console.log('no')
         }
     }
 })
